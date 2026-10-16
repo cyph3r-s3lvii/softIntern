@@ -1,0 +1,4 @@
+[
+  {"request_id":"oc-nonstring-query","route":"/preview","query":123},
+  {"request_id":"oc-unhashable-session","route":"/reports","session":["red-reader"],"report_id":"r-red"}
+]

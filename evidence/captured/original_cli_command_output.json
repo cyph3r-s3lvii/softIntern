@@ -1,0 +1,29 @@
+[
+  {
+    "request_id": "normal-red",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Red forecast: 120"
+  },
+  {
+    "request_id": "normal-preview",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>Welcome</p>"
+  },
+  {
+    "request_id": "missing-route",
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Missing"
+  }
+]

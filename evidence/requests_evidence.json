@@ -1,0 +1,21 @@
+[
+  {"request_id":"ctl-red-own","route":"/reports","session":"red-reader","report_id":"r-red"},
+  {"request_id":"ctl-blue-own","route":"/reports","session":"blue-reader","report_id":"r-blue"},
+  {"request_id":"ctl-auth-missing-report","route":"/reports","session":"red-reader","report_id":"r-none"},
+  {"request_id":"ctl-preview-plain","route":"/preview","query":"Quarterly summary"},
+  {"request_id":"f01-red-reads-blue","route":"/reports","session":"red-reader","report_id":"r-blue"},
+  {"request_id":"f01-blue-reads-red","route":"/reports","session":"blue-reader","report_id":"r-red"},
+  {"request_id":"f03-no-session-red","route":"/reports","report_id":"r-red"},
+  {"request_id":"f03-no-session-blue","route":"/reports","report_id":"r-blue"},
+  {"request_id":"f03-no-session-nonexistent-id","route":"/reports","report_id":"r-none"},
+  {"request_id":"f03-unknown-session","route":"/reports","session":"mallory","report_id":"r-red"},
+  {"request_id":"f03-empty-session","route":"/reports","session":"","report_id":"r-red"},
+  {"request_id":"f03-case-variant-session","route":"/reports","session":"RED-READER","report_id":"r-red"},
+  {"request_id":"f02-script-tag","route":"/preview","query":"<script>alert(1)</script>"},
+  {"request_id":"f02-attr-breakout","route":"/preview","query":"\" onmouseover=\"alert(1)"},
+  {"request_id":"f02-img-onerror","route":"/preview","query":"'><img src=x onerror=alert(1)>"},
+  {"request_id":"f02-entity-passthrough","route":"/preview","query":"&lt;b&gt;"},
+  {"request_id":"f04-preview-headers","route":"/preview","query":"x"},
+  {"request_id":"f04-reports-headers","route":"/reports","session":"red-reader","report_id":"r-red"},
+  {"request_id":"rt-trailing-slash-route","route":"/reports/","session":"red-reader","report_id":"r-red"}
+]

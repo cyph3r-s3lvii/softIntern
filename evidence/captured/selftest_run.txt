@@ -1,0 +1,5 @@
+OK   mutant fix-f01-add-tenant-check: checker failed on ['f01-blue-reads-red', 'f01-red-reads-blue']
+OK   mutant break-escaping: checker failed on ['f02-attr-breakout', 'f02-entity-passthrough', 'f02-img-onerror', 'f02-script-tag']
+OK   mutant open-anonymous-access: checker failed on ['f03-case-variant-session', 'f03-empty-session', 'f03-no-session-blue', 'f03-no-session-nonexistent-id', 'f03-no-session-red', 'f03-unknown-session']
+OK   mutant add-csp-header: checker failed on ['ctl-auth-missing-report', 'ctl-blue-own', 'ctl-preview-plain', 'ctl-red-own', 'f01-blue-reads-red', 'f01-red-reads-blue', 'f02-attr-breakout', 'f02-entity-passthrough', 'f02-img-onerror', 'f02-script-tag', 'f03-case-variant-session', 'f03-empty-session', 'f03-no-session-blue', 'f03-no-session-nonexistent-id', 'f03-no-session-red', 'f03-unknown-session', 'f04-preview-headers', 'f04-reports-headers', 'missing-route', 'normal-preview', 'normal-red', 'rt-trailing-slash-route']
+SELFTEST PASSED: checker detects every injected behaviour change

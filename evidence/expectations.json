@@ -1,0 +1,332 @@
+{
+  "normal-red": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Original normal request: red reads own report",
+    "status": 200,
+    "body": "Red forecast: 120",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "inputs/requests.json"
+  },
+  "normal-preview": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Original normal request: preview of plain text",
+    "status": 200,
+    "body": "<p>Welcome</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "inputs/requests.json"
+  },
+  "missing-route": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Original normal request: unknown route",
+    "status": 404,
+    "body": "Missing",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "inputs/requests.json"
+  },
+  "ctl-red-own": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Legit: red reads own report",
+    "status": 200,
+    "body": "Red forecast: 120",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "ctl-blue-own": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Legit: blue reads own report",
+    "status": 200,
+    "body": "Blue forecast: 340",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "ctl-auth-missing-report": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Legit: signed-in user, nonexistent report -> 404",
+    "status": 404,
+    "body": "Missing",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "ctl-preview-plain": {
+    "finding": "-",
+    "kind": "control",
+    "purpose": "Legit: plain preview text rendered as text",
+    "status": 200,
+    "body": "<p>Quarterly summary</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f01-red-reads-blue": {
+    "finding": "F-01",
+    "kind": "adversarial",
+    "purpose": "red session requests blue report id (policy says must be denied)",
+    "status": 200,
+    "body": "Blue forecast: 340",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f01-blue-reads-red": {
+    "finding": "F-01",
+    "kind": "adversarial",
+    "purpose": "Symmetric direction: blue session requests red report",
+    "status": 200,
+    "body": "Red forecast: 120",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-no-session-red": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "No session key, valid report id -> must be denied",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-no-session-blue": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "No session key, other tenant's valid id -> denied",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-no-session-nonexistent-id": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "Anonymous + nonexistent id gives same 401 as valid id (no existence oracle for anonymous)",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-unknown-session": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "Unknown session token -> denied",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-empty-session": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "Empty-string session -> denied",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f03-case-variant-session": {
+    "finding": "F-03",
+    "kind": "adversarial",
+    "purpose": "Session lookup is exact-match; case variant denied",
+    "status": 401,
+    "body": "Sign in",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f02-script-tag": {
+    "finding": "F-02",
+    "kind": "adversarial",
+    "purpose": "Script tag in query is entity-encoded",
+    "status": 200,
+    "body": "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f02-attr-breakout": {
+    "finding": "F-02",
+    "kind": "adversarial",
+    "purpose": "Double quote encoded (attribute-breakout payload)",
+    "status": 200,
+    "body": "<p>&quot; onmouseover=&quot;alert(1)</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f02-img-onerror": {
+    "finding": "F-02",
+    "kind": "adversarial",
+    "purpose": "Single quote and angle brackets encoded",
+    "status": 200,
+    "body": "<p>&#x27;&gt;&lt;img src=x onerror=alert(1)&gt;</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f02-entity-passthrough": {
+    "finding": "F-02",
+    "kind": "adversarial",
+    "purpose": "Ampersand encoded, so pre-encoded input is not decoded",
+    "status": 200,
+    "body": "<p>&amp;lt;b&amp;gt;</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f04-preview-headers": {
+    "finding": "F-04",
+    "kind": "adversarial",
+    "purpose": "Pins: /preview has no Content-Security-Policy; X-Frame-Options present",
+    "status": 200,
+    "body": "<p>x</p>",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "f04-reports-headers": {
+    "finding": "F-04",
+    "kind": "control",
+    "purpose": "Pins header set on /reports",
+    "status": 200,
+    "body": "Red forecast: 120",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  },
+  "rt-trailing-slash-route": {
+    "finding": "-",
+    "kind": "adversarial",
+    "purpose": "Route matching is exact; '/reports/' falls to 404",
+    "status": 404,
+    "body": "Missing",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "headers_absent": [
+      "Content-Security-Policy"
+    ],
+    "file_hint": "evidence/requests_evidence.json"
+  }
+}
