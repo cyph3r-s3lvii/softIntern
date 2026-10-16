@@ -1,0 +1,173 @@
+[
+  {
+    "request_id": "ctl-red-own",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Red forecast: 120"
+  },
+  {
+    "request_id": "ctl-blue-own",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Blue forecast: 340"
+  },
+  {
+    "request_id": "ctl-auth-missing-report",
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Missing"
+  },
+  {
+    "request_id": "ctl-preview-plain",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>Quarterly summary</p>"
+  },
+  {
+    "request_id": "f01-red-reads-blue",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Blue forecast: 340"
+  },
+  {
+    "request_id": "f01-blue-reads-red",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Red forecast: 120"
+  },
+  {
+    "request_id": "f03-no-session-red",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f03-no-session-blue",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f03-no-session-nonexistent-id",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f03-unknown-session",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f03-empty-session",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f03-case-variant-session",
+    "status": 401,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Sign in"
+  },
+  {
+    "request_id": "f02-script-tag",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>"
+  },
+  {
+    "request_id": "f02-attr-breakout",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>&quot; onmouseover=&quot;alert(1)</p>"
+  },
+  {
+    "request_id": "f02-img-onerror",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>&#x27;&gt;&lt;img src=x onerror=alert(1)&gt;</p>"
+  },
+  {
+    "request_id": "f02-entity-passthrough",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>&amp;lt;b&amp;gt;</p>"
+  },
+  {
+    "request_id": "f04-preview-headers",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "<p>x</p>"
+  },
+  {
+    "request_id": "f04-reports-headers",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Red forecast: 120"
+  },
+  {
+    "request_id": "rt-trailing-slash-route",
+    "status": 404,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Missing"
+  }
+]

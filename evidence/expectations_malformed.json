@@ -1,0 +1,12 @@
+{
+  "oc-nonstring-query": {
+    "finding": "-",
+    "purpose": "Out-of-contract: non-string query -> unhandled AttributeError (not XSS; aborts a CLI batch)",
+    "exception": "AttributeError"
+  },
+  "oc-unhashable-session": {
+    "finding": "-",
+    "purpose": "Out-of-contract: list session -> unhandled TypeError",
+    "exception": "TypeError"
+  }
+}

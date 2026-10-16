@@ -1,0 +1,4 @@
+[
+  {"request_id":"repro-f01-control","route":"/reports","session":"red-reader","report_id":"r-red"},
+  {"request_id":"repro-f01-cross-tenant","route":"/reports","session":"red-reader","report_id":"r-blue"}
+]

@@ -1,0 +1,8 @@
+# Decision / work log
+
+- **Read first:** contract.md, lab.py, alerts.json. Predicted from code before running: F-01 true (no tenant compare), F-02 and F-03 false, F-04 true-but-low. Then tested rather than trusting that reading.
+- **Prioritisation:** contract allows one fix + one investigation and says to prioritise demonstrated harm over scanner labels. All four scanner alerts were "high/medium"; only F-01 shows harm. Fix = F-01. Investigation = real-browser check of `/preview` (covers what the model cannot: F-02 rendering, F-04 CSP value).
+- **Obstacle and response:** the README expects a `candidate/inputs/` layout, but the files arrived flat, and the supplied lab.py has CRLF line endings. I rebuilt the layout and made the self-test mutations single-line string replacements that do not depend on line endings. A first `cp` with brace expansion also failed in the shell; I re-ran it with an explicit loop.
+- **Validation/refinement:** see "Hypothesis refinement" in FINDING_REGISTER.md. Also `--selftest` injects four behaviour changes (fix F-01, break escaping, open anonymous access, add CSP) and confirms the checker fails on each; it is the evidence that the checker "fails visibly".
+- **Limits:** in-memory model only: no browser rendering, cookies, caching, routing, deployment (contract). "Refuted" means refuted in this model.
+- **Next step:** apply the F-01 fix in the real service, flip `f01-*` expectations to 404, then do the browser check of `/preview`. Optional stretch: integration test outside the model: log in as tenant A, request tenant B's report ID over real HTTP, assert 403/404 and identical bodies for missing vs not-owned.

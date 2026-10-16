@@ -1,0 +1,20 @@
+[
+  {
+    "request_id": "repro-f01-control",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Red forecast: 120"
+  },
+  {
+    "request_id": "repro-f01-cross-tenant",
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Frame-Options": "DENY"
+    },
+    "body": "Blue forecast: 340"
+  }
+]
